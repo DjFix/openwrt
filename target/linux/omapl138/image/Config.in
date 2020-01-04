@@ -1,0 +1,5 @@
+config OMAPL138_USB_BOOT_PARTSIZE
+	int "Boot (USB Flash Drive) filesystem partition size (in MB)"
+	depends on TARGET_omapl138
+	default 20
+
