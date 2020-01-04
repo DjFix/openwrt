@@ -26,7 +26,7 @@ define Build/omapl138-usb
 	./gen_omap_sdcard_img.sh $@ \
 		$@.boot \
 		$(IMAGE_ROOTFS) \
-		$(OMAPL138_USB_BOOT_PARTSIZE) \
+		$(CONFIG_OMAPL138_USB_BOOT_PARTSIZE) \
 		$(CONFIG_TARGET_ROOTFS_PARTSIZE)
 	rm -f $@.boot
 endef
