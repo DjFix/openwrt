@@ -35,7 +35,7 @@ define Device/Default
   PROFILES := Default
   DEVICE_VARS :=
   KERNEL_NAME := zImage
-  KERNEL := kernel-bin
+  KERNEL := kernel-bin | append-dtb | uImage none
   IMAGES := usb.img.gz
   IMAGE/usb.img.gz := omapl138-usb | append-metadata | gzip
   SUPPORTED_DEVICES = $(subst _,$(comma),$(1))
