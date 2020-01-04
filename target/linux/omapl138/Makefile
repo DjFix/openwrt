@@ -14,7 +14,7 @@ FEATURES:=usb usbgadget ext4 targz audio display nand squashfs
 CPU_TYPE:=arm9
 CPU_SUBTYPE:=ARM926EJ-S
 
-KERNEL_PATCHVER:=5.4
+KERNEL_PATCHVER:=4.14
 
 MAINTAINER:=Roman Savrulin <romansavrulin@gmail.com>
 
