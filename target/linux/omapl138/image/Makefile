@@ -17,16 +17,16 @@ define Build/omapl138-usb
 	rm -f $@.boot
 	mkfs.fat $@.boot -C $(FAT32_BLOCKS)
 
-	mcopy -i $@.boot $(STAGING_DIR_IMAGE)/$(DEVICE_NAME)/MLO ::MLO
-	mcopy -i $@.boot $(STAGING_DIR_IMAGE)/$(DEVICE_NAME)/u-boot.img ::u-boot.img
-	mcopy -i $@.boot $(STAGING_DIR_IMAGE)/$(DEVICE_NAME)/uEnv.txt ::uEnv.txt
+#	mcopy -i $@.boot $(STAGING_DIR_IMAGE)/$(DEVICE_NAME)/MLO ::MLO
+#	mcopy -i $@.boot $(STAGING_DIR_IMAGE)/$(DEVICE_NAME)/u-boot.img ::u-boot.img
+#	mcopy -i $@.boot $(STAGING_DIR_IMAGE)/$(DEVICE_NAME)/uEnv.txt ::uEnv.txt
 	mmd -i $@.boot ::/dtbs
-	mcopy -i $@.boot $(DTS_DIR)/$(DEVICE_DTS).dtb ::/dtbs/$(DEVICE_DTS).dtb
+	mcopy -i $@.boot $(LINUX_DIR)/../image-$(DEVICE_DTS).dtb ::/dtbs/$(DEVICE_DTS).dtb
 	mcopy -i $@.boot $(IMAGE_KERNEL) ::/zImage
 	./gen_omap_sdcard_img.sh $@ \
 		$@.boot \
 		$(IMAGE_ROOTFS) \
-		$(CONFIG_OMAP_SD_BOOT_PARTSIZE) \
+		$(OMAPL138_USB_BOOT_PARTSIZE) \
 		$(CONFIG_TARGET_ROOTFS_PARTSIZE)
 	rm -f $@.boot
 endef
